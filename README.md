@@ -35,7 +35,7 @@ query GetPerson {
 
 -   Configure
     -   `apollo-link-state` is deprecated
-    -   `apollo-client@latest` can handle local state now
+    -   `apollo-client@2.5` can handle local state now
 
 ```JavaScript
 import { ApolloClient } from 'apollo-client';
