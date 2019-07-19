@@ -63,7 +63,7 @@ export default client;
     -   `cache.readQuery({ query })`
     -   `cache.writeDate({ data: {} })`
     -   Maniuplate or read the cache
--   `getCacheKey({ \_\_typename, id })`
+-   `getCacheKey({ __typename, id })`
     -   Get a key from the cache using `__typename` and `id`
 
 ```JavaScript
