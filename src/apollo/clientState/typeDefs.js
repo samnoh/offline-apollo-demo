@@ -1,5 +1,19 @@
 import gql from 'graphql-tag';
 
-const typeDefs = {};
+export default gql`
+    extend type Query {
+        notes: [Note]!
+        note(id: String!): Note
+    }
 
-export default typeDefs;
+    extend type Mutation {
+        createNote(title: String!, content: String): Note!
+        editNote(id: String!, title: String!, content: String): Note!
+    }
+
+    type Note {
+        id: String!
+        title: String!
+        content: String!
+    }
+`;

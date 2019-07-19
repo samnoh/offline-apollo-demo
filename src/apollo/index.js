@@ -1,5 +1,5 @@
-import { InMemoryCache } from 'apollo-cache-inmemory';
 import { ApolloClient } from 'apollo-client';
+import { InMemoryCache } from 'apollo-cache-inmemory';
 
 import { resolvers, typeDefs, defaults } from './clientState';
 
@@ -7,8 +7,8 @@ const cache = new InMemoryCache();
 
 const client = new ApolloClient({
     cache,
-    typeDefs,
-    resolvers
+    resolvers,
+    typeDefs
 });
 
 cache.writeData({
