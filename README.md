@@ -6,7 +6,7 @@
 -   apollo-client
 -   react-router-dom
 -   react-textarea-autosize
-    -   textarea component that automatically resizes textarea as content changes
+    -   A textarea component that automatically resizes textarea as content changes
 -   styled-components
 -   styled-reset
     -   Reset CSS for styled-components
@@ -61,7 +61,7 @@ export default client;
 -   `cache`
     -   `cache.readFragment({ fragment, id })`
     -   `cache.readQuery({ query })`
-    -   Used to maniuplate or read the cache
+    -   Maniuplate or read the cache
 -   `getCacheKey({ \_\_typename, id })`
     -   Get a key from the cache using `__typename` and `id`
 
