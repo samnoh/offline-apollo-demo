@@ -1,22 +1,22 @@
 import React from 'react';
-import { Query } from 'react-apollo';
-import gql from 'graphql-tag';
+import { Switch, Route } from 'react-router-dom';
+import loadable from '@loadable/component';
 
-const query = gql`
-    {
-        note @client {
-            title
-        }
-    }
-`;
+const NotesPage = loadable(() => import('./pages/NotesPage'));
+const NotePage = loadable(() => import('./pages/NotePage'));
+const AddPage = loadable(() => import('./pages/AddPage'));
+const EditPage = loadable(() => import('./pages/EditPage'));
+const NotFoundPage = loadable(() => import('./pages/NotFoundPage'));
 
 const App = () => {
     return (
-        <Query query={query}>
-            {({ loading, data }) => {
-                return null;
-            }}
-        </Query>
+        <Switch>
+            <Route exact path="/" component={NotesPage} />
+            <Route path="/note/:id" component={NotePage} />
+            <Route path="/add" component={AddPage} />
+            <Route path="/edit/:id" component={EditPage} />
+            <Route component={NotFoundPage} />
+        </Switch>
     );
 };
 
