@@ -61,6 +61,7 @@ export default client;
 -   `cache`
     -   `cache.readFragment({ fragment, id })`
     -   `cache.readQuery({ query })`
+    -   `cache.writeDate({ data: {} })`
     -   Maniuplate or read the cache
 -   `getCacheKey({ \_\_typename, id })`
     -   Get a key from the cache using `__typename` and `id`
