@@ -1,6 +1,7 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 import loadable from '@loadable/component';
+import { Reset } from 'styled-reset';
 
 const NotesPage = loadable(() => import('./pages/NotesPage'));
 const NotePage = loadable(() => import('./pages/NotePage'));
@@ -10,13 +11,16 @@ const NotFoundPage = loadable(() => import('./pages/NotFoundPage'));
 
 const App = () => {
     return (
-        <Switch>
-            <Route exact path="/" component={NotesPage} />
-            <Route path="/note/:id" render={({ match }) => <NotePage id={match.params.id} />} />
-            <Route path="/add" component={AddPage} />
-            <Route path="/edit/:id" component={EditPage} />
-            <Route component={NotFoundPage} />
-        </Switch>
+        <>
+            <Reset />
+            <Switch>
+                <Route exact path="/" component={NotesPage} />
+                <Route path="/note/:id" render={({ match }) => <NotePage id={match.params.id} />} />
+                <Route path="/add" component={AddPage} />
+                <Route path="/edit/:id" component={EditPage} />
+                <Route component={NotFoundPage} />
+            </Switch>
+        </>
     );
 };
 
