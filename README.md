@@ -34,6 +34,8 @@ query GetPerson {
 ### GraphQL local state management
 
 -   Configure
+    -   `apollo-link-state` is deprecated
+    -   `apollo-client@latest` has local state handling now
 
 ```JavaScript
 import { ApolloClient } from 'apollo-client';
