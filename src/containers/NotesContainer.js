@@ -3,12 +3,12 @@ import React from 'react';
 import Note from '../components/Note';
 
 const NotesContainer = ({ data }) => {
-    if (!data.notes) return null;
+    if (data.notes.length === 0) return <h1>No Notes</h1>;
 
     return (
         <>
             {data.notes.map(note => (
-                <Note {...note} />
+                <Note key={note.id} {...note} />
             ))}
         </>
     );
