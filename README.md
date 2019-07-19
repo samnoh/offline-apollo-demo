@@ -31,7 +31,7 @@ query GetPerson {
 }
 ```
 
-### GraphQL Local State Management
+### Apollo Local State Management
 
 -   Configure
     -   `apollo-link-state` is deprecated
