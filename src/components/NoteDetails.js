@@ -1,6 +1,6 @@
 import React from 'react';
 
-const NoteDetails = ({ title, content }) => {
+const NoteDetails = ({ id, title, content }) => {
     return (
         <>
             <h1>{title}</h1>
