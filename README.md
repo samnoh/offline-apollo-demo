@@ -80,9 +80,7 @@ Mutation: {
     createNote: (_, { title, content }, { cache }) => {
         const { notes } = cache.readQuery({ query: GET_NOTES });
         const newNote = { id: uuid(), title, content, __typename: 'Note' };
-
         cache.writeData({ data: { notes: [...notes, newNote] } });
-
         return newNote;
     }
 }
