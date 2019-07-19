@@ -77,17 +77,13 @@ Query: {
 
 ```JavaScript
 Mutation: {
-    toggleTodo: (_, {id}, { cache, getCacheKey }) => {
-        const todoId = getCacheKey({ __typename: 'TodoItem', id })
-        const fragment = gql`
-            fragment completeTodo on TodoItem {
-                completed
-            }
-        `;
-        const todo = cache.readFragment({ fragment, id: todoId });
-        const data = { ...todo, completed: !todo.completed };
+    createNote: (_, { title, content }, { cache }) => {
+        const { notes } = cache.readQuery({ query: GET_NOTES });
+        const newNote = { id: uuid(), title, content, __typename: 'Note' };
 
-        cache.writeData({ id, data });
-        return null;
-    },
+        cache.writeData({ data: { notes: [...notes, newNote] } });
+
+        return newNote;
+    }
+}
 ```
