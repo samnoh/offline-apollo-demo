@@ -10,7 +10,7 @@ export const GrayButton = styled.div`
     ${({ left }) => (left ? `left: 100px;` : `right: 100px;`)}
 
     &:hover {
-        background-color: ${props => props.green && props.theme.green};
+        background-color: ${({ green, theme }) => green && theme.green};
     }
 
     @media (max-width: ${({ theme: { breakpoints } }) => breakpoints.medium}) {
@@ -32,5 +32,24 @@ export const AddButton = styled.div`
     @media (max-width: ${({ theme: { breakpoints } }) => breakpoints.medium}) {
         top: 85px;
         right: 10px;
+    }
+`;
+
+export const ShowButton = styled.div`
+    ${transition}
+    cursor: pointer;
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    padding: 10px 20px;
+    border-raidus: 7px;
+    background-color: ${({ theme: { gray } }) => gray};
+
+    &:hover {
+        background-color: ${({ theme: { blue } }) => blue};
+    }
+
+    @media (min-width: ${({ theme: { breakpoints } }) => breakpoints.medium}) {
+        display: none;
     }
 `;

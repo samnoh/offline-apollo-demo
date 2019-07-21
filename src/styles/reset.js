@@ -20,6 +20,23 @@ export default createGlobalStyle`
         color: inherit;
     }
 
+    input,
+    textarea {
+        appearance: none;
+        border: none;
+        background-color: transparent;
+        resize: none;
+
+        &:focus,
+        &:active{
+            outline: none;
+        }
+
+        &::placeholder {
+            color: ${({ theme: { white } }) => white};
+        }
+    }
+
     * {
         box-sizing: inherit;
     }

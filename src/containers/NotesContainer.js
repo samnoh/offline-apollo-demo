@@ -15,7 +15,7 @@ const NotesContainer = ({ data: { notes } }) => {
                 <title>Note | {'' + notes.length}</title>
             </Helmet>
             <Link to="/add">
-                <AddButton>Add</AddButton>
+                <AddButton>New</AddButton>
             </Link>
             <Title>Notes</Title>
             {notes.map(note => (
