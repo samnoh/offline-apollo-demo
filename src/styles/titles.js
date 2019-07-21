@@ -10,8 +10,11 @@ export const Title = styled.h1`
 export const SubTitle = styled.h2`
     font-size: 30px;
     font-weight: 400;
-    display: inline-block;
     line-height: 120%;
+    margin-bottom: 40px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
     ${grayLeftLine}
     ${transition}
 

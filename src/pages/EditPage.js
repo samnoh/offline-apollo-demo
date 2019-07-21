@@ -1,10 +1,23 @@
 import React from 'react';
+import { Query, Mutation } from 'react-apollo';
 
-const EditPage = () => {
+import { EDIT_NOTE, GET_NOTE } from '../apollo/queries';
+import EditorContainer from '../containers/EditorContainer';
+
+const EditPage = ({ id }) => {
     return (
-        <>
-            <h1>Hello Edit Page</h1>
-        </>
+        <Query query={GET_NOTE} variables={{ id }}>
+            {({ data: { note } }) => {
+                if (!note) return <h1>No Note</h1>;
+                return (
+                    <Mutation mutation={EDIT_NOTE}>
+                        {editNote => {
+                            return <EditorContainer submit={editNote} {...note} />;
+                        }}
+                    </Mutation>
+                );
+            }}
+        </Query>
     );
 };
 

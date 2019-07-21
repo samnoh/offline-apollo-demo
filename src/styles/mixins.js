@@ -6,7 +6,7 @@ export const boxShadow = css`
 
 export const grayBottomLine = css`
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-    padding-bottom: 5px;
+    padding-bottom: 8px;
 `;
 
 export const grayLeftLine = css`

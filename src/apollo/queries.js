@@ -18,3 +18,19 @@ export const GET_NOTE = gql`
         }
     }
 `;
+
+export const ADD_NOTE = gql`
+    mutation createNote($title: String!, $content: String) {
+        createNote(title: $title, content: $content) @client {
+            id
+        }
+    }
+`;
+
+export const EDIT_NOTE = gql`
+    mutation editNote($id: String!, $title: String!, $content: String) {
+        editNote(id: $id, title: $title, content: $content) @client {
+            id
+        }
+    }
+`;
