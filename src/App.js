@@ -1,7 +1,7 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 import loadable from '@loadable/component';
-import { Reset } from 'styled-reset';
+import GlobalStyle from './styles/reset';
 
 const NotesPage = loadable(() => import('./pages/NotesPage'));
 const NotePage = loadable(() => import('./pages/NotePage'));
@@ -12,7 +12,7 @@ const NotFoundPage = loadable(() => import('./pages/NotFoundPage'));
 const App = () => {
     return (
         <>
-            <Reset />
+            <GlobalStyle />
             <Switch>
                 <Route exact path="/" component={NotesPage} />
                 <Route path="/note/:id" render={({ match }) => <NotePage id={match.params.id} />} />

@@ -2,15 +2,19 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { ApolloProvider } from 'react-apollo';
 import { BrowserRouter } from 'react-router-dom';
+import { ThemeProvider } from 'styled-components';
 
 import * as serviceWorker from './serviceWorker';
 import App from './App';
 import client from './apollo';
+import theme from './styles/themes';
 
 ReactDOM.render(
     <ApolloProvider client={client}>
         <BrowserRouter>
-            <App />
+            <ThemeProvider theme={theme}>
+                <App />
+            </ThemeProvider>
         </BrowserRouter>
     </ApolloProvider>,
     document.getElementById('root')

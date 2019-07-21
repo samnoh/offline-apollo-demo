@@ -1,10 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { SubTitle } from '../styles/titles';
 
 const Note = ({ id, title }) => {
     return (
         <Link to={`/note/${id}`}>
-            <h1>{title}</h1>
+            <SubTitle>{title}</SubTitle>
         </Link>
     );
 };
