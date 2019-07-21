@@ -99,3 +99,28 @@ Mutation: {
     }
 }
 ```
+
+### react-markdown + github-markdown-css
+
+-   Renders markdown strings to HTML
+    -   escapes HTML tags by default for security issues
+
+```JavaScript
+import ReactMarkdown from 'react-markdown';
+import MarkdownStyle from '../styles/markdown';
+
+<MarkdownStyle>
+    <ReactMarkdown className="markdown-body" source={content} />
+</MarkdownStyle>
+```
+
+-   Markdown Styles
+
+```JavaScript
+import styled from 'styled-components';
+import markdownStyles from 'github-markdown-css';
+
+export default styled.div`
+    ${markdownStyles}
+`;
+```
