@@ -2,7 +2,6 @@ import React, { useState, useCallback } from 'react';
 import { withRouter } from 'react-router-dom';
 
 import NoteEditor from '../components/NoteEditor';
-import { GrayButton, AddButton, ShowButton } from '../styles/buttons';
 
 const EditorContainer = ({ id, title = '', content = '', submit, history }) => {
     const [titleVal, setTitleVal] = useState(title);
@@ -27,17 +26,20 @@ const EditorContainer = ({ id, title = '', content = '', submit, history }) => {
     }, [id, titleVal, contentVal, submit, history]);
 
     return (
-        <>
-            <GrayButton onClick={() => history.push('/')} left>
-                Back
-            </GrayButton>
-            <GrayButton onClick={resetVals}>Reset</GrayButton>
-            <AddButton onClick={submitNote}>Save</AddButton>
-            <ShowButton onClick={() => toggleEditview(!editView)}>
-                {editView ? 'Preview' : 'Edit'}
-            </ShowButton>
-            <NoteEditor {...{ id, titleVal, contentVal, editView, setTitleVal, setContentVal }} />
-        </>
+        <NoteEditor
+            {...{
+                id,
+                titleVal,
+                contentVal,
+                editView,
+                setTitleVal,
+                setContentVal,
+                resetVals,
+                submitNote,
+                toggleEditview,
+                history
+            }}
+        />
     );
 };
 
