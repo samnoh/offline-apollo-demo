@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactMarkdown from 'react-markdown';
+import Helmet from 'react-helmet';
 import { withRouter } from 'react-router-dom';
 
 import { Title } from '../styles/titles';
@@ -21,6 +22,9 @@ const NoteEditor = ({
 }) => {
     return (
         <>
+            <Helmet>
+                <title>{id ? 'Edit Note' : 'Add Note'}</title>
+            </Helmet>
             <GrayButton onClick={() => history.goBack()} left>
                 Back
             </GrayButton>
