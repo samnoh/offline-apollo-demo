@@ -86,3 +86,14 @@ Mutation: {
     }
 }
 ```
+
+-   `@client`
+    -   Used for offline queries
+
+```graphql
+{
+    notes @client {
+        ...
+    }
+}
+```

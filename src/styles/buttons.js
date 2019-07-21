@@ -1,13 +1,14 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 
-import { buttons } from './mixins';
+import { buttons, transition } from './mixins';
 
 export const BackButton = styled.div`
     ${buttons}
-
     top: 30px;
-    left: 111px;
+    left: 100px;
+    ${transition}
+
     @media (max-width: ${props => props.theme.breakpoints.medium}) {
-        left: 20px;
+        left: 10px;
     }
 `;

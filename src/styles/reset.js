@@ -6,7 +6,7 @@ export default createGlobalStyle`
 
     body {
         font-family: 'Roboto', sans-serif;
-        margin: 70px 110px;
+        margin: 80px 110px;
         box-sizing: border-box;
         color: ${props => props.theme.black}
 

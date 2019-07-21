@@ -19,4 +19,15 @@ export const buttons = css`
     color: ${props => props.theme.gray};
     cursor: pointer;
     position: absolute;
+    border-radius: 3px;
+    padding: 5px 10px;
+
+    &:hover {
+        color: ${props => props.theme.white};
+        background-color: ${props => props.theme.gray};
+    }
+`;
+
+export const transition = css`
+    transition: all 0.3s ease-in-out;
 `;
