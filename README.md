@@ -108,7 +108,7 @@ Mutation: {
 ```JavaScript
 import ReactMarkdown from 'react-markdown';
 import MarkdownStyle from '../styles/markdown';
-
+...
 <MarkdownStyle>
     <ReactMarkdown className="markdown-body" source={content} />
 </MarkdownStyle>
