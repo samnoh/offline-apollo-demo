@@ -104,6 +104,30 @@ Mutation: {
 }
 ```
 
+-   Mutation
+
+```graphql
+export const ADD_NOTE = gql`
+    mutation createNote($title: String!, $content: String) {
+        createNote(title: $title, content: $content) @client {
+            id
+        }
+    }
+`;
+```
+
+```JavaScript
+import { Mutation } from 'react-apollo';
+...
+<Mutation mutation={ADD_NOTE}>
+    {createNote => <EditorContainer submit={createNote} />}
+</Mutation>
+```
+
+```JavaScript
+submit({ variables: { id, title, content } });
+```
+
 ### react-markdown + github-markdown-css
 
 -   Renders markdown strings to HTML
