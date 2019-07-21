@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import styled from 'styled-components';
 
 import NoteDetails from '../components/NoteDetails';
 import { GrayButton } from '../styles/buttons';
@@ -10,7 +11,10 @@ const NotesContainer = ({ data: { note } }) => {
     return (
         <>
             <Link to="/">
-                <GrayButton>Back</GrayButton>
+                <GrayButton left>Back</GrayButton>
+            </Link>
+            <Link to={`/edit/${note.id}`}>
+                <GrayButton green>Edit</GrayButton>
             </Link>
             <NoteDetails {...note} />
         </>

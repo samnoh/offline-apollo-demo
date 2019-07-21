@@ -17,7 +17,7 @@ const App = () => {
                 <Route exact path="/" component={NotesPage} />
                 <Route path="/note/:id" render={({ match }) => <NotePage id={match.params.id} />} />
                 <Route path="/add" component={AddPage} />
-                <Route path="/edit/:id" component={EditPage} />
+                <Route path="/edit/:id" render={({ match }) => <EditPage id={match.params.id} />} />
                 <Route component={NotFoundPage} />
             </Switch>
         </>

@@ -3,6 +3,7 @@ export default {
     gray: '#b5b3b3',
     white: ' #E3E4E5',
     blue: '#3E82E9',
+    green: '#77B782',
     breakpoints: {
         small: '320px',
         medium: '768px',
