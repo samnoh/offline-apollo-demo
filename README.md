@@ -1,9 +1,9 @@
 # Offline Apollo Demo
 
--   graphql
--   graphql-tag
 -   apollo-cache-inmemory
 -   apollo-client
+-   graphql
+-   graphql-tag
 -   react-router-dom
 -   react-markdown
 -   react-textarea-autosize
