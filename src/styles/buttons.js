@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 import { buttons, transition } from './mixins';
 
-export const BackButton = styled.div`
+export const GrayButton = styled.div`
     ${buttons}
     top: 30px;
     left: 100px;
