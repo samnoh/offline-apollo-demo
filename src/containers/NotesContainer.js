@@ -7,8 +7,6 @@ import { Title } from '../styles/titles';
 import { AddButton } from '../styles/buttons';
 
 const NotesContainer = ({ data: { notes } }) => {
-    if (notes.length === 0) return <h1>No Notes</h1>;
-
     return (
         <>
             <Helmet>
@@ -18,9 +16,7 @@ const NotesContainer = ({ data: { notes } }) => {
                 <AddButton>New</AddButton>
             </Link>
             <Title>Notes</Title>
-            {notes.map(note => (
-                <Note key={note.id} {...note} />
-            ))}
+            {notes && notes.map(note => <Note key={note.id} {...note} />)}
         </>
     );
 };

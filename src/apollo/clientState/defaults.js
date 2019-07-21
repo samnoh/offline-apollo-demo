@@ -1,12 +1,5 @@
-import uuid from 'uuid/v4';
+import { restoreNotes } from './localStorage';
 
 export default {
-    notes: [
-        {
-            id: uuid(),
-            title: 'first note',
-            content: '# This is a H1  \n## This is a H2  \n###### This is a H6',
-            __typename: 'Note'
-        }
-    ]
+    notes: restoreNotes()
 };

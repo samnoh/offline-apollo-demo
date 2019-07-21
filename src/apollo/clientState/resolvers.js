@@ -2,6 +2,7 @@ import uuid from 'uuid/v4';
 
 import { NOTE_FRAGMENT } from '../fragments';
 import { GET_NOTES } from '../queries';
+import { saveNotes } from './localStorage';
 
 export default {
     Query: {
@@ -31,6 +32,8 @@ export default {
                 }
             });
 
+            saveNotes(cache);
+
             return newNote;
         },
         editNote: (_, { id, title, content }, { cache, getCacheKey }) => {
@@ -47,6 +50,8 @@ export default {
                 fragment: NOTE_FRAGMENT,
                 data: updatedNote
             });
+
+            saveNotes(cache);
 
             return updatedNote;
         }

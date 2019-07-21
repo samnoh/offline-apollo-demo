@@ -22,7 +22,7 @@ const EditorContainer = ({ id, title = '', content = '', submit, history }) => {
         }
 
         submit({ variables: { id, title: titleVal, content: contentVal } });
-        history.push(`/note/${id}`);
+        history.push(id ? `/note/${id}` : '/');
     }, [id, titleVal, contentVal, submit, history]);
 
     return (
