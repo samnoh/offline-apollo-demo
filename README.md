@@ -120,7 +120,5 @@ import MarkdownStyle from '../styles/markdown';
 import styled from 'styled-components';
 import markdownStyles from 'github-markdown-css';
 
-export default styled.div`
-    ${markdownStyles}
-`;
+export default styled.div`${markdownStyles}`;
 ```
