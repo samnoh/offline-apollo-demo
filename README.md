@@ -109,9 +109,7 @@ Mutation: {
 ```graphql
 export const ADD_NOTE = gql`
     mutation createNote($title: String!, $content: String) {
-        createNote(title: $title, content: $content) @client {
-            id
-        }
+        createNote(title: $title, content: $content) @client {...}
     }
 `;
 ```
