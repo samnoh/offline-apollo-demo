@@ -48,7 +48,7 @@ export const StickyButton = styled.div`
     cursor: pointer;
     position: fixed;
     bottom: 15px;
-    right: 80px;
+    right: 75px;
     padding: 10px 20px;
     border-radius: 7px;
     z-index: 0;
