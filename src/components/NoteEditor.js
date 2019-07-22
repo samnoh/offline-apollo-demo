@@ -5,7 +5,16 @@ import { Title } from '../styles/titles';
 import { EditorContainer, TitleInput, ContentContainer, ContentInput } from '../styles/editor';
 import MarkdownStyle from '../styles/markdown';
 
-const NoteEditor = ({ id, titleVal, contentVal, editView, setTitleVal, setContentVal }) => {
+const NoteEditor = ({
+    id,
+    titleVal,
+    contentVal,
+    editView,
+    inputRef,
+    setTitleVal,
+    setContentVal,
+    onEnter
+}) => {
     return (
         <>
             <Title>{id ? 'Edit Note' : 'New Note'}</Title>
@@ -15,6 +24,7 @@ const NoteEditor = ({ id, titleVal, contentVal, editView, setTitleVal, setConten
                     onChange={e => setTitleVal(e.target.value)}
                     placeholder="Title..."
                     name="title"
+                    onKeyUp={onEnter}
                     autoFocus
                 />
                 <ContentContainer>
@@ -24,6 +34,7 @@ const NoteEditor = ({ id, titleVal, contentVal, editView, setTitleVal, setConten
                         placeholder="Markdown..."
                         name="content"
                         show={editView ? 1 : 0}
+                        inputRef={inputRef}
                     />
                     <MarkdownStyle editor show={!editView}>
                         <ReactMarkdown className="markdown-body" source={contentVal} />

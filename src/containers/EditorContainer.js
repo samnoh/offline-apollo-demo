@@ -6,6 +6,7 @@ import { faFont } from '@fortawesome/free-solid-svg-icons';
 import { faMarkdown } from '@fortawesome/free-brands-svg-icons';
 import { faHistory } from '@fortawesome/free-solid-svg-icons';
 
+import useFocus from '../hooks/useFocus';
 import { GrayButton, LargeButton, StickyButton } from '../styles/buttons';
 import NoteEditor from '../components/NoteEditor';
 import usePreventLeave from '../hooks/usePreventLeave';
@@ -16,6 +17,7 @@ const EditorContainer = ({ id, title = '', content = '', submit, history }) => {
     const [editView, toggleEditview] = useState(true);
     const [shouldPrevent, setPrevent] = useState(true);
     const [enablePrevent, disablePrevent] = usePreventLeave();
+    const [inputRef, setInputFocus] = useFocus();
 
     const resetVals = useCallback(() => {
         if (window.confirm('Are you sure to reset?')) {
@@ -30,9 +32,13 @@ const EditorContainer = ({ id, title = '', content = '', submit, history }) => {
             return;
         }
 
-        await setPrevent(false);
-        submit({ variables: { id, title: titleVal, content: contentVal } });
-        history.push(id ? `/note/${id}` : '/');
+        try {
+            await setPrevent(false);
+            submit({ variables: { id, title: titleVal, content: contentVal } });
+            history.push(id ? `/note/${id}` : '/');
+        } catch (e) {
+            console.error(e);
+        }
     }, [id, titleVal, contentVal, submit, history]);
 
     const preventLeave = useCallback(() => {
@@ -41,6 +47,15 @@ const EditorContainer = ({ id, title = '', content = '', submit, history }) => {
         }
         return false;
     }, []);
+
+    const onEnter = useCallback(
+        e => {
+            if (e.key === 'Enter') {
+                setInputFocus();
+            }
+        },
+        [setInputFocus]
+    );
 
     useEffect(() => {
         enablePrevent();
@@ -72,8 +87,10 @@ const EditorContainer = ({ id, title = '', content = '', submit, history }) => {
                     titleVal,
                     contentVal,
                     editView,
+                    inputRef,
                     setTitleVal,
-                    setContentVal
+                    setContentVal,
+                    onEnter
                 }}
             />
         </>
