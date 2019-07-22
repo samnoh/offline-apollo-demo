@@ -45,7 +45,7 @@ fragment NameParts on Person {
 }
 
 query GetPerson {
-    people(id: "7") {
+    people(id: 7) {
         ...NameParts
         avatar(size: LARGE)
     }
@@ -169,13 +169,13 @@ export default styled.div`${markdownStyles}`;
 -   Blob
 
 ```JavaScript
-    const element = document.createElement('a');
-    const file = new Blob([note.content], { type: 'text/plain' });
-    element.href = URL.createObjectURL(file);
-    element.download = `${note.title}.md`;
-    document.body.appendChild(element);
-    element.click();
-    document.body.removeChild(element);
+const element = document.createElement('a');
+const file = new Blob([note.content], { type: 'text/plain' });
+element.href = URL.createObjectURL(file);
+element.download = `${note.title}.md`;
+document.body.appendChild(element);
+element.click();
+document.body.removeChild(element);
 ```
 
 ### react-fontawesome
@@ -187,6 +187,7 @@ npm install --save @fontawesome/fontawesome-svg-core @fontawesome/free-solid-svg
 ```
 
 -   Usage
+    -   icon & size
 
 ```JavaScript
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
