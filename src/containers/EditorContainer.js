@@ -1,6 +1,8 @@
 import React, { useState, useCallback, useEffect } from 'react';
-import { withRouter } from 'react-router-dom';
+import { withRouter, Prompt } from 'react-router-dom';
+import Helmet from 'react-helmet';
 
+import { GrayButton, LargeButton, StickyButton } from '../styles/buttons';
 import NoteEditor from '../components/NoteEditor';
 import usePreventLeave from '../hooks/usePreventLeave';
 
@@ -45,22 +47,32 @@ const EditorContainer = ({ id, title = '', content = '', submit, history }) => {
     }, [enablePrevent, disablePrevent]);
 
     return (
-        <NoteEditor
-            {...{
-                id,
-                titleVal,
-                contentVal,
-                editView,
-                setTitleVal,
-                setContentVal,
-                resetVals,
-                submitNote,
-                toggleEditview,
-                shouldPrevent,
-                preventLeave,
-                history
-            }}
-        />
+        <>
+            <Helmet>
+                <title>{id ? 'Edit Note' : 'Add Note'}</title>
+            </Helmet>
+            <Prompt when={shouldPrevent} message={preventLeave} />
+            <GrayButton onClick={history.goBack} left>
+                <i className="fas fa-chevron-left fa-lg" />
+            </GrayButton>
+            <GrayButton onClick={resetVals} red>
+                <i className="fas fa-history fa-xl" />
+            </GrayButton>
+            <LargeButton onClick={submitNote}>Save</LargeButton>
+            <StickyButton onClick={() => toggleEditview(!editView)}>
+                {editView ? 'Preview' : 'Edit'}
+            </StickyButton>
+            <NoteEditor
+                {...{
+                    id,
+                    titleVal,
+                    contentVal,
+                    editView,
+                    setTitleVal,
+                    setContentVal
+                }}
+            />
+        </>
     );
 };
 
