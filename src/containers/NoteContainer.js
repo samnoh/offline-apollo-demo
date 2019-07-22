@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { Mutation } from 'react-apollo';
 import { withRouter } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTrash, faSave } from '@fortawesome/free-solid-svg-icons';
 
 import { REMOVE_NOTE } from '../apollo/queries';
 import NotFoundPage from '../pages/NotFoundPage';
@@ -37,7 +38,7 @@ const NotesContainer = ({ data: { note }, history }) => {
                 </GrayButton>
             </Link>
             <StickyButton onClick={downloadFile} show transparent>
-                <FontAwesomeIcon icon="save" size="2x" />
+                <FontAwesomeIcon icon={faSave} size="2x" />
             </StickyButton>
             <Mutation mutation={REMOVE_NOTE} variables={{ id: note.id }}>
                 {removeNote => {
@@ -48,7 +49,7 @@ const NotesContainer = ({ data: { note }, history }) => {
                             }}
                             red
                         >
-                            <FontAwesomeIcon icon="trash" />
+                            <FontAwesomeIcon icon={faTrash} />
                         </GrayButton>
                     );
                 }}

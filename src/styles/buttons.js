@@ -25,15 +25,17 @@ export const GrayButton = styled.div`
 export const LargeButton = styled.div`
     ${buttons}
     ${transition}
+    border: 1px solid ${({ theme: { gray } }) => gray};
     font-size: 25px;
-    top: 95px;
-    right: 100px;
+    top: 92px;
+    right: 110px;
 
     &:hover {
         background-color: ${({ green, theme }) => {
             if (green) return theme.green;
             return theme.blue;
         }};
+        border: 1px solid transparent;
     }
 
     @media (max-width: ${({ theme: { breakpoints } }) => breakpoints.medium}) {
@@ -46,7 +48,7 @@ export const StickyButton = styled.div`
     cursor: pointer;
     position: fixed;
     bottom: 15px;
-    right: 75px;
+    right: 80px;
     padding: 10px 20px;
     border-radius: 7px;
     z-index: 0;
@@ -70,8 +72,11 @@ export const StickyButton = styled.div`
         );
     }}
 
-    @media (max-width: ${({ theme: { breakpoints } }) => breakpoints.medium}) {
+    @media (min-width: ${({ theme: { breakpoints } }) => breakpoints.medium}) {
         ${({ show }) => !show && `display: none;`}
-        right: 0;
+    }
+
+    @media (max-width: ${({ theme: { breakpoints } }) => breakpoints.medium}) {
+        right: -7px;
     }
 `;

@@ -2,6 +2,9 @@ import React, { useState, useCallback, useEffect } from 'react';
 import { withRouter, Prompt } from 'react-router-dom';
 import Helmet from 'react-helmet';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faFont } from '@fortawesome/free-solid-svg-icons';
+import { faMarkdown } from '@fortawesome/free-brands-svg-icons';
+import { faHistory } from '@fortawesome/free-solid-svg-icons';
 
 import { GrayButton, LargeButton, StickyButton } from '../styles/buttons';
 import NoteEditor from '../components/NoteEditor';
@@ -57,11 +60,11 @@ const EditorContainer = ({ id, title = '', content = '', submit, history }) => {
                 <FontAwesomeIcon icon="chevron-left" />
             </GrayButton>
             <GrayButton onClick={resetVals} red>
-                <FontAwesomeIcon icon="history" />
+                <FontAwesomeIcon icon={faHistory} />
             </GrayButton>
             <LargeButton onClick={submitNote}>Save</LargeButton>
-            <StickyButton onClick={() => toggleEditview(!editView)}>
-                {editView ? 'Preview' : 'Edit'}
+            <StickyButton onClick={() => toggleEditview(!editView)} transparent>
+                <FontAwesomeIcon icon={editView ? faMarkdown : faFont} size="2x" />
             </StickyButton>
             <NoteEditor
                 {...{
