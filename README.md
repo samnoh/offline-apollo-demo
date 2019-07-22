@@ -1,5 +1,13 @@
 # Offline Apollo Demo
 
+-   Markdown Live Preview
+-   Download Markdown File
+-   Works Offline (localStorage)
+-   Responsive Web
+-   No Redux
+
+## Install
+
 -   apollo-cache-inmemory
 -   apollo-client
 -   graphql
