@@ -15,7 +15,7 @@ const NotesContainer = ({ data: { notes } }) => {
             <Link to="/add">
                 <LargeButton>New</LargeButton>
             </Link>
-            <Title>Notes</Title>
+            <Title>Markdown Notes</Title>
             {notes && notes.map(note => <Note key={note.id} {...note} />)}
         </>
     );
