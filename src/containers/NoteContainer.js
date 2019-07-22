@@ -6,7 +6,7 @@ import { withRouter } from 'react-router-dom';
 import { REMOVE_NOTE } from '../apollo/queries';
 import NotFoundPage from '../pages/NotFoundPage';
 import NoteDetails from '../components/NoteDetails';
-import { GrayButton, LargeButton } from '../styles/buttons';
+import { GrayButton, LargeButton, StickyButton } from '../styles/buttons';
 
 const NotesContainer = ({ data: { note }, history }) => {
     if (!note) return <NotFoundPage />;
@@ -18,13 +18,25 @@ const NotesContainer = ({ data: { note }, history }) => {
         }
     };
 
+    const downloadFile = () => {
+        const element = document.createElement('a');
+        const file = new Blob([note.content], { type: 'text/plain' });
+        element.href = URL.createObjectURL(file);
+        element.download = `${note.title}`;
+        document.body.appendChild(element);
+        element.click();
+    };
+
     return (
         <>
             <Link to="/">
                 <GrayButton left>
-                    <i class="fas fa-chevron-left fa-lg" />
+                    <i className="fas fa-chevron-left fa-lg" />
                 </GrayButton>
             </Link>
+            <StickyButton onClick={downloadFile} show transparent>
+                <i className="fas fa-save fa-2x" />
+            </StickyButton>
             <Mutation mutation={REMOVE_NOTE} variables={{ id: note.id }}>
                 {removeNote => {
                     return (
@@ -34,7 +46,7 @@ const NotesContainer = ({ data: { note }, history }) => {
                             }}
                             red
                         >
-                            <i class="fas fa-trash fa-xl" />
+                            <i className="fas fa-trash fa-xl" />
                         </GrayButton>
                     );
                 }}

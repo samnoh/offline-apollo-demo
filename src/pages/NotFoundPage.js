@@ -21,7 +21,7 @@ const NotFoundPage = ({ history }) => {
                 }}
                 left
             >
-                <i class="fas fa-chevron-left fa-lg" />
+                <i className="fas fa-chevron-left fa-lg" />
             </GrayButton>
             <Title>Not Found - 404</Title>
             <Image src={NotFoundImage} />

@@ -42,21 +42,34 @@ export const LargeButton = styled.div`
     }
 `;
 
-export const ShowButton = styled.div`
-    ${transition}
+export const StickyButton = styled.div`
     cursor: pointer;
     position: fixed;
     bottom: 30px;
     right: 30px;
     padding: 10px 20px;
-    border-raidus: 7px;
+    border-radius: 7px;
+    z-index: 0;
     background-color: ${({ theme: { gray } }) => gray};
+    ${transition}
 
     &:hover {
         background-color: ${({ theme: { blue } }) => blue};
     }
 
+    ${({ transparent }) => {
+        return (
+            transparent &&
+            `
+            background-color: transparent;
+            &:hover {
+                background-color: transparent;
+            }
+        `
+        );
+    }}
+
     @media (min-width: ${({ theme: { breakpoints } }) => breakpoints.medium}) {
-        display: none;
+        ${({ show }) => !show && `display: none;`}
     }
 `;

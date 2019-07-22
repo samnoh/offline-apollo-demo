@@ -5,7 +5,7 @@ import { withRouter, Prompt } from 'react-router-dom';
 
 import { Title } from '../styles/titles';
 import { EditorContainer, TitleInput, ContentContainer, ContentInput } from '../styles/editor';
-import { GrayButton, LargeButton, ShowButton } from '../styles/buttons';
+import { GrayButton, LargeButton, StickyButton } from '../styles/buttons';
 import MarkdownStyle from '../styles/markdown';
 
 const NoteEditor = ({
@@ -29,15 +29,15 @@ const NoteEditor = ({
             </Helmet>
             <Prompt when={shouldPrevent} message={preventLeave} />
             <GrayButton onClick={history.goBack} left>
-                <i class="fas fa-chevron-left fa-lg" />
+                <i className="fas fa-chevron-left fa-lg" />
             </GrayButton>
             <GrayButton onClick={resetVals} red>
-                <i class="fas fa-history fa-xl" />
+                <i className="fas fa-history fa-xl" />
             </GrayButton>
             <LargeButton onClick={submitNote}>Save</LargeButton>
-            <ShowButton onClick={() => toggleEditview(!editView)}>
+            <StickyButton onClick={() => toggleEditview(!editView)}>
                 {editView ? 'Preview' : 'Edit'}
-            </ShowButton>
+            </StickyButton>
             <Title>{id ? 'Edit Note' : 'Add Note'}</Title>
             <EditorContainer>
                 <TitleInput
