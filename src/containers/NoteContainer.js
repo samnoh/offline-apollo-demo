@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import { Mutation } from 'react-apollo';
 import { withRouter } from 'react-router-dom';
