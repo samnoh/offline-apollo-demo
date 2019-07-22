@@ -7,7 +7,7 @@ export const EditorContainer = styled.div`
     margin: 0 auto;
 `;
 
-export const TitleInput = styled(TextareaAutosize)`
+export const TitleInput = styled.input`
     ${grayLeftLine}
     ${transition}
     font-size: 50px;
@@ -16,6 +16,7 @@ export const TitleInput = styled(TextareaAutosize)`
     outline: none;
     padding-left: 20px;
     margin-bottom: 40px;
+    display: inline;
 
     &::placeholder {
         font-weight: 600;

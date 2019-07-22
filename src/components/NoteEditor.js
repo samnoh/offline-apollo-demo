@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react';
+import React from 'react';
 import ReactMarkdown from 'react-markdown';
 import Helmet from 'react-helmet';
 import { withRouter, Prompt } from 'react-router-dom';
@@ -18,21 +18,16 @@ const NoteEditor = ({
     resetVals,
     submitNote,
     toggleEditview,
+    preventLeave,
+    shouldPrevent,
     history
 }) => {
-    const preventLeave = useCallback(() => {
-        if (window.confirm('Are you sure to leave?')) {
-            return true;
-        }
-        return false;
-    }, []);
-
     return (
         <>
             <Helmet>
                 <title>{id ? 'Edit Note' : 'Add Note'}</title>
             </Helmet>
-            <Prompt when={true} message={preventLeave} />
+            <Prompt when={shouldPrevent} message={preventLeave} />
             <GrayButton onClick={history.goBack} left>
                 Back
             </GrayButton>

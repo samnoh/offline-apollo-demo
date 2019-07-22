@@ -10,6 +10,7 @@ const EditPage = ({ id }) => {
         <Query query={GET_NOTE} variables={{ id }}>
             {({ data: { note } }) => {
                 if (!note) return <NotFoundPage />;
+
                 return (
                     <Mutation mutation={EDIT_NOTE}>
                         {editNote => <EditorContainer submit={editNote} {...note} />}
