@@ -3,11 +3,15 @@ import ReactDOM from 'react-dom';
 import { ApolloProvider } from 'react-apollo';
 import { BrowserRouter } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { faChevronLeft, faSave, faTrash, faHistory } from '@fortawesome/free-solid-svg-icons';
 
 import * as serviceWorker from './serviceWorker';
 import App from './App';
 import client from './apollo';
 import theme from './styles/themes';
+
+library.add(faChevronLeft, faSave, faTrash, faHistory); // for using fontawesome icons globally
 
 ReactDOM.render(
     <ApolloProvider client={client}>

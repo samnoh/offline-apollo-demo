@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Mutation } from 'react-apollo';
 import { withRouter } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import { REMOVE_NOTE } from '../apollo/queries';
 import NotFoundPage from '../pages/NotFoundPage';
@@ -32,11 +33,11 @@ const NotesContainer = ({ data: { note }, history }) => {
         <>
             <Link to="/">
                 <GrayButton left>
-                    <i className="fas fa-chevron-left fa-lg" />
+                    <FontAwesomeIcon icon="chevron-left" />
                 </GrayButton>
             </Link>
             <StickyButton onClick={downloadFile} show transparent>
-                <i className="fas fa-save fa-2x" />
+                <FontAwesomeIcon icon="save" size="2x" />
             </StickyButton>
             <Mutation mutation={REMOVE_NOTE} variables={{ id: note.id }}>
                 {removeNote => {
@@ -47,7 +48,7 @@ const NotesContainer = ({ data: { note }, history }) => {
                             }}
                             red
                         >
-                            <i className="fas fa-trash fa-xl" />
+                            <FontAwesomeIcon icon="trash" />
                         </GrayButton>
                     );
                 }}

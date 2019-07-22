@@ -1,11 +1,11 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 import Helmet from 'react-helmet';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import { Title } from '../styles/titles';
 import { GrayButton } from '../styles/buttons';
 import NotFoundImage from '../images/Astronaut-big.png';
-
 import { Image } from '../styles/mixins';
 
 const NotFoundPage = ({ history }) => {
@@ -16,12 +16,11 @@ const NotFoundPage = ({ history }) => {
             </Helmet>
             <GrayButton
                 onClick={() => {
-                    window.location.reload();
-                    history.goBack();
+                    history.push('/');
                 }}
                 left
             >
-                <i className="fas fa-chevron-left fa-lg" />
+                <FontAwesomeIcon icon="chevron-left" />
             </GrayButton>
             <Title>Not Found - 404</Title>
             <Image src={NotFoundImage} />

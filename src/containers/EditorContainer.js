@@ -1,6 +1,7 @@
 import React, { useState, useCallback, useEffect } from 'react';
 import { withRouter, Prompt } from 'react-router-dom';
 import Helmet from 'react-helmet';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import { GrayButton, LargeButton, StickyButton } from '../styles/buttons';
 import NoteEditor from '../components/NoteEditor';
@@ -53,10 +54,10 @@ const EditorContainer = ({ id, title = '', content = '', submit, history }) => {
             </Helmet>
             <Prompt when={shouldPrevent} message={preventLeave} />
             <GrayButton onClick={history.goBack} left>
-                <i className="fas fa-chevron-left fa-lg" />
+                <FontAwesomeIcon icon="chevron-left" />
             </GrayButton>
             <GrayButton onClick={resetVals} red>
-                <i className="fas fa-history fa-xl" />
+                <FontAwesomeIcon icon="history" />
             </GrayButton>
             <LargeButton onClick={submitNote}>Save</LargeButton>
             <StickyButton onClick={() => toggleEditview(!editView)}>

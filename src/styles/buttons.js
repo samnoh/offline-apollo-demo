@@ -45,8 +45,8 @@ export const LargeButton = styled.div`
 export const StickyButton = styled.div`
     cursor: pointer;
     position: fixed;
-    bottom: 30px;
-    right: 30px;
+    bottom: 15px;
+    right: 75px;
     padding: 10px 20px;
     border-radius: 7px;
     z-index: 0;
@@ -70,7 +70,8 @@ export const StickyButton = styled.div`
         );
     }}
 
-    @media (min-width: ${({ theme: { breakpoints } }) => breakpoints.medium}) {
+    @media (max-width: ${({ theme: { breakpoints } }) => breakpoints.medium}) {
         ${({ show }) => !show && `display: none;`}
+        right: 0;
     }
 `;

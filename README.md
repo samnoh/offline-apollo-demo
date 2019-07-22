@@ -4,7 +4,7 @@
 -   Download Markdown File
 -   Works Offline (localStorage)
 -   Responsive Web
--   No Redux
+-   No Redux (GraphQL Local State)
 
 ## Install
 
