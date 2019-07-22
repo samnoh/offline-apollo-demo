@@ -54,6 +54,20 @@ export default {
             saveNotes(cache);
 
             return updatedNote;
+        },
+        removeNote: async (_, { id }, { cache, getCacheKey }) => {
+            const { notes } = cache.readQuery({ query: GET_NOTES });
+            const updatedNotes = await notes.filter(e => e.id !== id);
+
+            cache.writeData({
+                data: {
+                    notes: [...updatedNotes]
+                }
+            });
+
+            saveNotes(cache);
+            if (notes.length === updatedNotes.length) return false;
+            return true;
         }
     }
 };

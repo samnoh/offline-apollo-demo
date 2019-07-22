@@ -34,3 +34,9 @@ export const EDIT_NOTE = gql`
         }
     }
 `;
+
+export const REMOVE_NOTE = gql`
+    mutation removeNote($id: String!) {
+        removeNote(id: $id) @client
+    }
+`;
