@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactMarkdown from 'react-markdown';
-import { withRouter } from 'react-router-dom';
 
 import { Title } from '../styles/titles';
 import { EditorContainer, TitleInput, ContentContainer, ContentInput } from '../styles/editor';
@@ -34,4 +33,4 @@ const NoteEditor = ({ id, titleVal, contentVal, editView, setTitleVal, setConten
     );
 };
 
-export default withRouter(NoteEditor);
+export default NoteEditor;

@@ -57,13 +57,14 @@ export const StickyButton = styled.div`
         background-color: ${({ theme: { blue } }) => blue};
     }
 
-    ${({ transparent }) => {
+    ${({ transparent, theme }) => {
         return (
             transparent &&
             `
             background-color: transparent;
             &:hover {
                 background-color: transparent;
+                color: ${theme.gray}
             }
         `
         );
