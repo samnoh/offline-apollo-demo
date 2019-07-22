@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import ReactMarkdown from 'react-markdown';
 import Helmet from 'react-helmet';
-import { withRouter } from 'react-router-dom';
+import { withRouter, Prompt } from 'react-router-dom';
 
 import { Title } from '../styles/titles';
 import { EditorContainer, TitleInput, ContentContainer, ContentInput } from '../styles/editor';
@@ -20,12 +20,20 @@ const NoteEditor = ({
     toggleEditview,
     history
 }) => {
+    const preventLeave = useCallback(() => {
+        if (window.confirm('Are you sure to leave?')) {
+            return true;
+        }
+        return false;
+    }, []);
+
     return (
         <>
             <Helmet>
                 <title>{id ? 'Edit Note' : 'Add Note'}</title>
             </Helmet>
-            <GrayButton onClick={() => history.goBack()} left>
+            <Prompt when={true} message={preventLeave} />
+            <GrayButton onClick={history.goBack} left>
                 Back
             </GrayButton>
             <GrayButton onClick={resetVals}>Reset</GrayButton>
@@ -47,7 +55,7 @@ const NoteEditor = ({
                         onChange={e => setContentVal(e.target.value)}
                         placeholder="Your note"
                         name="content"
-                        show={editView}
+                        show={editView ? 1 : 0}
                     />
                     <MarkdownStyle editor show={!editView}>
                         <ReactMarkdown className="markdown-body" source={contentVal} />

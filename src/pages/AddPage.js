@@ -7,9 +7,7 @@ import EditorContainer from '../containers/EditorContainer';
 const AddPage = () => {
     return (
         <Mutation mutation={ADD_NOTE}>
-            {createNote => {
-                return <EditorContainer submit={createNote} />;
-            }}
+            {createNote => <EditorContainer submit={createNote} />}
         </Mutation>
     );
 };

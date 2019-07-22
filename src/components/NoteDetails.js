@@ -6,7 +6,6 @@ import { Title } from '../styles/titles';
 import MarkdownStyle from '../styles/markdown';
 
 const NoteDetails = ({ id, title, content }) => {
-    console.log(content);
     return (
         <>
             <Helmet>

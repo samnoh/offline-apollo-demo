@@ -1,11 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+import NotFoundPage from '../pages/NotFoundPage';
 import NoteDetails from '../components/NoteDetails';
 import { GrayButton } from '../styles/buttons';
 
 const NotesContainer = ({ data: { note } }) => {
-    if (!note) return <h1>No Note</h1>;
+    if (!note) return <NotFoundPage />;
 
     return (
         <>
