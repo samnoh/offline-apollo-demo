@@ -152,3 +152,17 @@ import markdownStyles from 'github-markdown-css';
 
 export default styled.div`${markdownStyles}`;
 ```
+
+### Create & Download File
+
+-   Blob
+
+```JavaScript
+    const element = document.createElement('a');
+    const file = new Blob([note.content], { type: 'text/plain' });
+    element.href = URL.createObjectURL(file);
+    element.download = `${note.title}.md`;
+    document.body.appendChild(element);
+    element.click();
+    document.body.removeChild(element);
+```
