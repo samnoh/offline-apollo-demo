@@ -21,7 +21,9 @@ const NotesContainer = ({ data: { note }, history }) => {
     return (
         <>
             <Link to="/">
-                <GrayButton left>Back</GrayButton>
+                <GrayButton left>
+                    <i class="fas fa-chevron-left fa-lg" />
+                </GrayButton>
             </Link>
             <Mutation mutation={REMOVE_NOTE} variables={{ id: note.id }}>
                 {removeNote => {

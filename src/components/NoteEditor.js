@@ -29,10 +29,10 @@ const NoteEditor = ({
             </Helmet>
             <Prompt when={shouldPrevent} message={preventLeave} />
             <GrayButton onClick={history.goBack} left>
-                Back
+                <i class="fas fa-chevron-left fa-lg" />
             </GrayButton>
             <GrayButton onClick={resetVals} red>
-                Reset
+                <i class="fas fa-history fa-xl" />
             </GrayButton>
             <LargeButton onClick={submitNote}>Save</LargeButton>
             <ShowButton onClick={() => toggleEditview(!editView)}>
