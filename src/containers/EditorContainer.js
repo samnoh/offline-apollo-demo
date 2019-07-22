@@ -31,15 +31,18 @@ const EditorContainer = ({ id, title = '', content = '', submit, history }) => {
 
     const preventLeave = useCallback(() => {
         if (window.confirm('Are you sure to leave?')) {
-            disablePrevent();
             return true;
         }
         return false;
-    }, [disablePrevent]);
+    }, []);
 
     useEffect(() => {
         enablePrevent();
-    }, [enablePrevent]);
+
+        return () => {
+            disablePrevent(); // componentDidUnmount
+        };
+    }, [enablePrevent, disablePrevent]);
 
     return (
         <NoteEditor
