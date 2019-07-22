@@ -12,6 +12,7 @@
 -   apollo-client
 -   graphql
 -   graphql-tag
+-   react-fontawesome
 -   react-router-dom
 -   react-markdown
 -   react-textarea-autosize
@@ -173,4 +174,21 @@ export default styled.div`${markdownStyles}`;
     document.body.appendChild(element);
     element.click();
     document.body.removeChild(element);
+```
+
+### react-fontawesome
+
+-   Install
+
+```Shell
+npm install --save @fontawesome/fontawesome-svg-core @fontawesome/free-solid-svg-icons @fontawesome/react-fontawesome
+```
+
+-   Usage
+
+```JavaScript
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faChevronLeft} from '@fortawesome/free-solid-svg-icons';
+...
+<FontAwesomeIcon icon={faChevronLeft} size="sm" />
 ```
