@@ -50,7 +50,7 @@ const NoteEditor = ({
                     <ContentInput
                         value={contentVal}
                         onChange={e => setContentVal(e.target.value)}
-                        placeholder="..."
+                        placeholder="Markdown..."
                         name="content"
                         show={editView ? 1 : 0}
                     />

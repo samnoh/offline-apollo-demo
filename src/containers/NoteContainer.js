@@ -34,7 +34,7 @@ const NotesContainer = ({ data: { note }, history }) => {
                             }}
                             red
                         >
-                            Delete
+                            <i class="fas fa-trash fa-xl" />
                         </GrayButton>
                     );
                 }}
