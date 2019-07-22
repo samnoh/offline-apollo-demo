@@ -5,7 +5,7 @@ import { withRouter, Prompt } from 'react-router-dom';
 
 import { Title } from '../styles/titles';
 import { EditorContainer, TitleInput, ContentContainer, ContentInput } from '../styles/editor';
-import { GrayButton, AddButton, ShowButton } from '../styles/buttons';
+import { GrayButton, LargeButton, ShowButton } from '../styles/buttons';
 import MarkdownStyle from '../styles/markdown';
 
 const NoteEditor = ({
@@ -31,8 +31,10 @@ const NoteEditor = ({
             <GrayButton onClick={history.goBack} left>
                 Back
             </GrayButton>
-            <GrayButton onClick={resetVals}>Reset</GrayButton>
-            <AddButton onClick={submitNote}>Save</AddButton>
+            <GrayButton onClick={resetVals} red>
+                Reset
+            </GrayButton>
+            <LargeButton onClick={submitNote}>Save</LargeButton>
             <ShowButton onClick={() => toggleEditview(!editView)}>
                 {editView ? 'Preview' : 'Edit'}
             </ShowButton>

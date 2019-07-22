@@ -10,7 +10,11 @@ export const GrayButton = styled.div`
     ${({ left }) => (left ? `left: 100px;` : `right: 100px;`)}
 
     &:hover {
-        background-color: ${({ green, theme }) => green && theme.green};
+        background-color: ${({ green, red, theme }) => {
+            if (red) return theme.red;
+            if (green) return theme.green;
+            return theme.gray;
+        }};
     }
 
     @media (max-width: ${({ theme: { breakpoints } }) => breakpoints.medium}) {
@@ -18,7 +22,7 @@ export const GrayButton = styled.div`
     }
 `;
 
-export const AddButton = styled.div`
+export const LargeButton = styled.div`
     ${buttons}
     ${transition}
     font-size: 25px;
@@ -26,7 +30,10 @@ export const AddButton = styled.div`
     right: 100px;
 
     &:hover {
-        background-color: ${({ theme }) => theme.blue};
+        background-color: ${({ green, theme }) => {
+            if (green) return theme.green;
+            return theme.blue;
+        }};
     }
 
     @media (max-width: ${({ theme: { breakpoints } }) => breakpoints.medium}) {

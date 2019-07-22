@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 import NotFoundPage from '../pages/NotFoundPage';
 import NoteDetails from '../components/NoteDetails';
-import { GrayButton } from '../styles/buttons';
+import { GrayButton, LargeButton } from '../styles/buttons';
 
 const NotesContainer = ({ data: { note } }) => {
     if (!note) return <NotFoundPage />;
@@ -14,7 +14,10 @@ const NotesContainer = ({ data: { note } }) => {
                 <GrayButton left>Back</GrayButton>
             </Link>
             <Link to={`/edit/${note.id}`}>
-                <GrayButton green>Edit</GrayButton>
+                <GrayButton red>Delete</GrayButton>
+            </Link>
+            <Link to={`/edit/${note.id}`}>
+                <LargeButton green>Edit</LargeButton>
             </Link>
             <NoteDetails {...note} />
         </>

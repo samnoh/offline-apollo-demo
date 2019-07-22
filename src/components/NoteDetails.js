@@ -12,7 +12,7 @@ const NoteDetails = ({ id, title, content }) => {
                 <title>{title}</title>
             </Helmet>
             <Title>{title}</Title>
-            <MarkdownStyle>
+            <MarkdownStyle show>
                 <ReactMarkdown className="markdown-body" source={content} />
             </MarkdownStyle>
         </>
