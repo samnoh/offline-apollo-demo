@@ -8,13 +8,14 @@ import MarkdownStyle from '../styles/markdown';
 const NoteEditor = ({ id, titleVal, contentVal, editView, setTitleVal, setContentVal }) => {
     return (
         <>
-            <Title>{id ? 'Edit Note' : 'Add Note'}</Title>
+            <Title>{id ? 'Edit Note' : 'New Note'}</Title>
             <EditorContainer>
                 <TitleInput
                     value={titleVal}
                     onChange={e => setTitleVal(e.target.value)}
                     placeholder="Title..."
                     name="title"
+                    autoFocus
                 />
                 <ContentContainer>
                     <ContentInput

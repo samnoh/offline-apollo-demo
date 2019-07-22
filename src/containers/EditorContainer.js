@@ -53,7 +53,7 @@ const EditorContainer = ({ id, title = '', content = '', submit, history }) => {
     return (
         <>
             <Helmet>
-                <title>{id ? 'Edit Note' : 'Add Note'}</title>
+                <title>{id ? 'Edit Note' : 'New Note'}</title>
             </Helmet>
             <Prompt when={shouldPrevent} message={preventLeave} />
             <GrayButton onClick={history.goBack} left>
