@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import { Mutation } from 'react-apollo';
 import { withRouter } from 'react-router-dom';
@@ -9,26 +9,25 @@ import { REMOVE_NOTE } from '../apollo/queries';
 import NotFoundPage from '../pages/NotFoundPage';
 import NoteDetails from '../components/NoteDetails';
 import { GrayButton, LargeButton, StickyButton } from '../styles/buttons';
+import downloadFile from '../utils/downloadFile';
+import codeHighlight from '../utils/prism';
 
 const NotesContainer = ({ data: { note }, history }) => {
+    useEffect(() => {
+        codeHighlight();
+    }, []);
+
+    const remove = useCallback(
+        async remove => {
+            if (window.confirm('Are you sure to delete it?')) {
+                await remove();
+                history.push('/');
+            }
+        },
+        [history]
+    );
+
     if (!note) return <NotFoundPage />;
-
-    const remove = async remove => {
-        if (window.confirm('Are you sure to delete it?')) {
-            await remove();
-            history.push('/');
-        }
-    };
-
-    const downloadFile = () => {
-        const element = document.createElement('a');
-        const file = new Blob([note.content], { type: 'text/plain' });
-        element.href = URL.createObjectURL(file);
-        element.download = `${note.title}.md`;
-        document.body.appendChild(element);
-        element.click();
-        document.body.removeChild(element);
-    };
 
     return (
         <>
@@ -37,7 +36,7 @@ const NotesContainer = ({ data: { note }, history }) => {
                     <FontAwesomeIcon icon="chevron-left" />
                 </GrayButton>
             </Link>
-            <StickyButton onClick={downloadFile} show transparent>
+            <StickyButton onClick={() => downloadFile(note.title, note.content)} show transparent>
                 <FontAwesomeIcon icon={faSave} size="2x" />
             </StickyButton>
             <Mutation mutation={REMOVE_NOTE} variables={{ id: note.id }}>

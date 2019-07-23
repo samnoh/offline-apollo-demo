@@ -1,15 +1,11 @@
 import React, { useState, useCallback, useEffect } from 'react';
 import { withRouter, Prompt } from 'react-router-dom';
 import Helmet from 'react-helmet';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faFont } from '@fortawesome/free-solid-svg-icons';
-import { faMarkdown } from '@fortawesome/free-brands-svg-icons';
-import { faHistory } from '@fortawesome/free-solid-svg-icons';
 
 import useFocus from '../hooks/useFocus';
-import { GrayButton, LargeButton, StickyButton } from '../styles/buttons';
 import NoteEditor from '../components/NoteEditor';
 import usePreventLeave from '../hooks/usePreventLeave';
+import MarkdownEditor from '../components/MarkdownEditor';
 
 const EditorContainer = ({ id, title = '', content = '', submit, history }) => {
     const [titleVal, setTitleVal] = useState(title);
@@ -59,7 +55,6 @@ const EditorContainer = ({ id, title = '', content = '', submit, history }) => {
 
     useEffect(() => {
         enablePrevent();
-
         return () => {
             disablePrevent(); // componentDidUnmount
         };
@@ -71,26 +66,24 @@ const EditorContainer = ({ id, title = '', content = '', submit, history }) => {
                 <title>{id ? 'Edit Note' : 'New Note'}</title>
             </Helmet>
             <Prompt when={shouldPrevent} message={preventLeave} />
-            <GrayButton onClick={history.goBack} left>
-                <FontAwesomeIcon icon="chevron-left" />
-            </GrayButton>
-            <GrayButton onClick={resetVals} red>
-                <FontAwesomeIcon icon={faHistory} />
-            </GrayButton>
-            <LargeButton onClick={submitNote}>Save</LargeButton>
-            <StickyButton onClick={() => toggleEditview(!editView)} transparent>
-                <FontAwesomeIcon icon={editView ? faMarkdown : faFont} size="2x" />
-            </StickyButton>
             <NoteEditor
                 {...{
                     id,
+                    editView,
+                    resetVals,
+                    toggleEditview
+                }}
+            />
+            <MarkdownEditor
+                {...{
                     titleVal,
                     contentVal,
-                    editView,
-                    inputRef,
                     setTitleVal,
                     setContentVal,
-                    onEnter
+                    onEnter,
+                    editView,
+                    submitNote,
+                    inputRef
                 }}
             />
         </>

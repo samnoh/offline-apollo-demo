@@ -1,48 +1,28 @@
-import React from 'react';
-import ReactMarkdown from 'react-markdown';
+import React, { memo } from 'react';
+import { withRouter } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faFont } from '@fortawesome/free-solid-svg-icons';
+import { faMarkdown } from '@fortawesome/free-brands-svg-icons';
+import { faHistory } from '@fortawesome/free-solid-svg-icons';
 
 import { Title } from '../styles/titles';
-import { EditorContainer, TitleInput, ContentContainer, ContentInput } from '../styles/editor';
-import MarkdownStyle from '../styles/markdown';
+import { GrayButton, StickyButton } from '../styles/buttons';
 
-const NoteEditor = ({
-    id,
-    titleVal,
-    contentVal,
-    editView,
-    inputRef,
-    setTitleVal,
-    setContentVal,
-    onEnter
-}) => {
+const NoteEditor = ({ id, editView, resetVals, toggleEditview, history }) => {
     return (
         <>
+            <GrayButton onClick={history.goBack} left>
+                <FontAwesomeIcon icon="chevron-left" />
+            </GrayButton>
+            <GrayButton onClick={resetVals} red>
+                <FontAwesomeIcon icon={faHistory} />
+            </GrayButton>
+            <StickyButton onClick={() => toggleEditview(!editView)} transparent>
+                <FontAwesomeIcon icon={editView ? faMarkdown : faFont} size="2x" />
+            </StickyButton>
             <Title>{id ? 'Edit Note' : 'New Note'}</Title>
-            <EditorContainer>
-                <TitleInput
-                    value={titleVal}
-                    onChange={e => setTitleVal(e.target.value)}
-                    placeholder="Title..."
-                    name="title"
-                    onKeyUp={onEnter}
-                    autoFocus
-                />
-                <ContentContainer>
-                    <ContentInput
-                        value={contentVal}
-                        onChange={e => setContentVal(e.target.value)}
-                        placeholder="Markdown..."
-                        name="content"
-                        show={editView ? 1 : 0}
-                        inputRef={inputRef}
-                    />
-                    <MarkdownStyle editor show={!editView}>
-                        <ReactMarkdown className="markdown-body" source={contentVal} />
-                    </MarkdownStyle>
-                </ContentContainer>
-            </EditorContainer>
         </>
     );
 };
 
-export default NoteEditor;
+export default memo(withRouter(NoteEditor));
