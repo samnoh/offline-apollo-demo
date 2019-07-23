@@ -2,6 +2,7 @@
 
 -   Markdown Live Preview
 -   Download Markdown File
+-   Highlight Code Syntax
 -   Works Offline (localStorage)
 -   Responsive Web
 -   No Redux (GraphQL Local State)
@@ -21,6 +22,7 @@
 -   styled-reset
     -   Reset CSS for styled-components
 -   github-markdown-css
+-   prismjs
 
 ## Live Demo
 
