@@ -7,6 +7,12 @@
 -   Responsive Web
 -   No Redux (GraphQL Local State)
 
+## Live Demo
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/f6802df9-6f0d-486f-82ac-2316c6e9bd32/deploy-status)](https://app.netlify.com/sites/dazzling-knuth-408b42/deploys)
+
+-   [Link](https://dazzling-knuth-408b42.netlify.com/)
+
 ## Install
 
 -   apollo-cache-inmemory
@@ -23,12 +29,6 @@
     -   Reset CSS for styled-components
 -   github-markdown-css
 -   prismjs
-
-## Live Demo
-
-[![Netlify Status](https://api.netlify.com/api/v1/badges/f6802df9-6f0d-486f-82ac-2316c6e9bd32/deploy-status)](https://app.netlify.com/sites/dazzling-knuth-408b42/deploys)
-
--   [Link](https://dazzling-knuth-408b42.netlify.com/)
 
 ## Screenshots
 
