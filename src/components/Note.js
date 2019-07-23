@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { Link } from 'react-router-dom';
 import { SubTitle } from '../styles/titles';
 
@@ -10,4 +10,4 @@ const Note = ({ id, title }) => {
     );
 };
 
-export default Note;
+export default memo(Note);
