@@ -10,7 +10,7 @@ const NotesContainer = ({ data: { notes }, history }) => {
     return (
         <>
             <Helmet>
-                <title>Note | {'' + notes.length}</title>
+                <title>Note | {notes && '' + notes.length}</title>
             </Helmet>
             <Button text="Add" callback={() => history.push('/add')} large />
             <Header title={'Notes'} />

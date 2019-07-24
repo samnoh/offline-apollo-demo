@@ -1,4 +1,5 @@
 import { GET_NOTES } from '../queries';
+import seed from '../../utils/seed';
 
 export const saveNotes = cache => {
     const { notes } = cache.readQuery({ query: GET_NOTES });
@@ -23,5 +24,5 @@ export const restoreNotes = () => {
         }
     }
 
-    return [];
+    return [seed];
 };
