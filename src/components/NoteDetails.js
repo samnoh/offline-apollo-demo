@@ -2,7 +2,7 @@ import React from 'react';
 import Helmet from 'react-helmet';
 import ReactMarkdown from 'react-markdown';
 
-import { Title } from '../styles/titles';
+import Header from './common/Header';
 import MarkdownStyle from '../styles/markdown';
 
 const NoteDetails = ({ id, title, content }) => {
@@ -11,7 +11,7 @@ const NoteDetails = ({ id, title, content }) => {
             <Helmet>
                 <title>{title}</title>
             </Helmet>
-            <Title>{title}</Title>
+            <Header title={title} />
             <MarkdownStyle show>
                 <ReactMarkdown className="markdown-body" source={content} />
             </MarkdownStyle>

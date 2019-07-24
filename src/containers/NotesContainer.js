@@ -1,24 +1,22 @@
 import React from 'react';
 import Helmet from 'react-helmet';
-import { Link } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 
+import Button from '../components/common/Button';
+import Header from '../components/common/Header';
 import Note from '../components/Note';
-import { Title } from '../styles/titles';
-import { LargeButton } from '../styles/buttons';
 
-const NotesContainer = ({ data: { notes } }) => {
+const NotesContainer = ({ data: { notes }, history }) => {
     return (
         <>
             <Helmet>
                 <title>Note | {'' + notes.length}</title>
             </Helmet>
-            <Link to="/add">
-                <LargeButton>Add</LargeButton>
-            </Link>
-            <Title>Notes</Title>
+            <Button text="Add" callback={() => history.push('/add')} large />
+            <Header title={'Notes'} />
             {notes && notes.map(note => <Note key={note.id} {...note} />)}
         </>
     );
 };
 
-export default NotesContainer;
+export default withRouter(NotesContainer);

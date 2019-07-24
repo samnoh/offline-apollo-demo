@@ -1,10 +1,9 @@
 import React from 'react';
-import { withRouter } from 'react-router-dom';
 import Helmet from 'react-helmet';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { withRouter } from 'react-router-dom';
 
-import { Title } from '../styles/titles';
-import { GrayButton } from '../styles/buttons';
+import Header from '../components/common/Header';
+import Button from '../components/common/Button';
 import NotFoundImage from '../images/Astronaut-big.png';
 import { Image } from '../styles/mixins';
 
@@ -14,15 +13,8 @@ const NotFoundPage = ({ history }) => {
             <Helmet>
                 <title>Not Found</title>
             </Helmet>
-            <GrayButton
-                onClick={() => {
-                    history.push('/');
-                }}
-                left
-            >
-                <FontAwesomeIcon icon="chevron-left" />
-            </GrayButton>
-            <Title>Not Found - 404</Title>
+            <Button callback={() => history.push('/')} options={{ left: true }} />
+            <Header title={'Not Found - 404'} />
             <Image src={NotFoundImage} />
         </>
     );

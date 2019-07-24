@@ -1,11 +1,11 @@
 import React, { memo } from 'react';
 import { Link } from 'react-router-dom';
-import { SubTitle } from '../styles/titles';
+import Header from './common/Header';
 
 const Note = ({ id, title }) => {
     return (
         <Link to={`/note/${id}`}>
-            <SubTitle>{title}</SubTitle>
+            <Header title={title} isTitle={false} />
         </Link>
     );
 };
