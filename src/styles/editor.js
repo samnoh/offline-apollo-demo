@@ -38,6 +38,7 @@ export const ContentContainer = styled.div`
 export const ContentInput = styled(TextareaAutosize)`
     width: 50%;
     font-size: 20px;
+    overflow-y: hidden;
 
     @media (max-width: ${({ theme: { breakpoints } }) => breakpoints.medium}) {
         width: 100%;

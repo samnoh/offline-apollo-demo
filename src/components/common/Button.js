@@ -35,7 +35,7 @@ Button.propTypes = {
     large: PropTypes.bool,
     sticky: PropTypes.bool,
     text: PropTypes.string,
-    icon: PropTypes.string,
+    icon: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
     callback: PropTypes.func,
     options: PropTypes.object
 };

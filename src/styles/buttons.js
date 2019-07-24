@@ -19,6 +19,7 @@ export const GrayButton = styled.div`
 
     @media (max-width: ${({ theme: { breakpoints } }) => breakpoints.medium}) {
         ${({ left }) => (left ? `left: 10px;` : `right: 10px;`)}
+        top: 20px;
     }
 `;
 
