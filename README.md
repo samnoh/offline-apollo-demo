@@ -1,4 +1,4 @@
-# Offline Apollo Demo
+# Offline GraphQL Demo
 
 -   Markdown Live Preview
 -   Download Markdown File
